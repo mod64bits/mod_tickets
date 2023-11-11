@@ -2,4 +2,108 @@
 
 
 {% block Content %}
+    <div class="container-xxl flex-grow-1 container-p-y">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <h5 class="card-title m-0 me-2">Chamados</h5>
+                    </div>
+                    <p class="mt-3"><span class="fw-medium">Total 48.5% growth</span> 😎 this month</p>
+                </div>
+                <div class="card-body">
+                    <div class="row g-3">
+                        <div class="col-md-3 col-8">
+                            <div class="d-flex align-items-center">
+                                <div class="avatar">
+                                    <div class="avatar-initial bg-primary rounded shadow">
+                                        <i class="mdi mdi-trending-up mdi-24px"></i>
+                                    </div>
+                                </div>
+                                <div class="ms-3">
+                                    <div class="small mb-1">Total</div>
+                                    <h5 class="mb-0">245k</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-8">
+                            <div class="d-flex align-items-center">
+                                <div class="avatar">
+                                    <div class="avatar-initial bg-success rounded shadow">
+                                        <i class="mdi mdi-account-outline mdi-24px"></i>
+                                    </div>
+                                </div>
+                                <div class="ms-3">
+                                    <div class="small mb-1">Abertos</div>
+                                    <h5 class="mb-0">12.5k</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-8">
+                            <div class="d-flex align-items-center">
+                                <div class="avatar">
+                                    <div class="avatar-initial bg-warning rounded shadow">
+                                        <i class="mdi mdi-cellphone-link mdi-24px"></i>
+                                    </div>
+                                </div>
+                                <div class="ms-3">
+                                    <div class="small mb-1">Em Andamento</div>
+                                    <h5 class="mb-0">1.54k</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <div class="col-12">
+            <div class="card">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class="table-light">
+                        <tr>
+                            <th class="text-truncate">Empresa / Solicitante</th>
+                            <th class="text-truncate">Departamento</th>
+                            <th class="text-truncate">Responsavel</th>
+                            <th class="text-truncate">Responsavel</th>
+                            <th class="text-truncate">Iniciado em</th>
+                            <th class="text-truncate">Status</th>
+                            <th class="text-truncate">Fechado em</th>
+                            <th class="text-truncate">Tempo</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for ticket in object_list %}
+                            <tr>
+                            <td>
+                                <div class="d-flex align-items-center">
+
+                                    <div>
+                                        <h6 class="mb-0 text-truncate">{{ ticket.company }}</h6>
+                                        <small class="text-truncate">{{ ticket.requester }}</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="text-truncate">{{ ticket.department }}</td>
+                            <td class="text-truncate">
+                                <i class="mdi mdi-laptop mdi-24px text-danger me-1"></i> Admin
+                            </td>
+                            <td class="text-truncate">24</td>
+                            <td class="text-truncate">34500$</td>
+                            <td><span class="badge bg-label-info rounded-pill">{{ ticket.status }}</span></td>
+                            <td><span class="badge bg-label-warning rounded-pill">Pending</span></td>
+                            <td><span class="badge bg-label-warning rounded-pill">Pending</span></td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="buy-now">
+                    <a href="https://themeselection.com/item/materio-bootstrap-html-admin-template/" target="_blank" class="btn btn-primary btn-buy-now waves-effect waves-light">Abrir Chamado</a>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock Content %}

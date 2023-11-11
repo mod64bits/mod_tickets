@@ -20,8 +20,9 @@ class Ticket(BaseModel):
         null=True,
         blank=True
     )
-    name = models.CharField('Nome', max_length=100)
+    requester = models.CharField('Solicitantes', max_length=100)
     department = models.CharField('Departamento', max_length=100)
+    description = models.TextField("Descrição do chamado")
     responsible = models.ForeignKey(
         User,
         on_delete=models.PROTECT,
@@ -31,9 +32,8 @@ class Ticket(BaseModel):
         editable=False
     )
     started_in = models.DateTimeField(null=True, blank=True, editable=False)
-    status = models.SmallIntegerField(
-        choices=STATUS, default='OPEN', editable=False)
+    status = models.CharField("Status", max_length=15, choices=STATUS, default='OPEN', editable=False)
     closed_in = models.DateTimeField(null=True, blank=True, editable=False)
 
     def __str__(self):
-        return self.name
+        return self.requester
