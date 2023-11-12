@@ -1,0 +1,55 @@
+{% load widget_tweaks %}
+<form method="post" action="">
+    {% csrf_token %}
+    <div class="modal-header">
+        <h4 class="modal-title" id="modalCenterTitle">Novo Ticket</h4>
+        <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+
+            <div class="col mb-4 mt-2">
+                <div class="form-floating form-floating-outline">
+                    {% render_field form.company class+="form-control" %}
+                    <label for="{{ form.company.label }}">{{ form.company.label }}</label>
+                </div>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col mb-2">
+                <div class="form-floating form-floating-outline">
+                    {% render_field form.requester class+="form-control"  placeholder='Solicitantes' %}
+
+                    <label for="emailWithTitle">{{ form.requester.label }}</label>
+                </div>
+            </div>
+            <div class="col mb-2">
+                <div class="form-floating form-floating-outline">
+                    {% render_field form.department class+="form-control"  placeholder='Departamento' %}
+                    <label for="{{ form.department.id }}">{{ form.department.label }}</label>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+
+            <div class="col mb-4 mt-2">
+                <div class="form-floating form-floating-outline">
+                    {% render_field form.description class+="form-control" placeholder='Descrição do Chamado' style="height: 199px;"%}
+                    <label for="{{ form.description.id }}">{{ form.description.label }}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+            Fechar
+        </button>
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </div>
+
+</form>

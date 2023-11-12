@@ -3,6 +3,7 @@ from django.db import models
 from apps.base.models import BaseModel
 from apps.companies.models import Company
 from apps.users.models import User
+from django.urls import reverse
 
 
 class Ticket(BaseModel):
@@ -37,3 +38,6 @@ class Ticket(BaseModel):
 
     def __str__(self):
         return self.requester
+
+    def get_absolute_url(self):
+        return reverse('ticket:list_ticket',  kwargs={})

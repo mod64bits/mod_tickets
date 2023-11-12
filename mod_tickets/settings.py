@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # libs
     'safedelete',
+    'bootstrap_modal_forms',
+    'widget_tweaks',
     # apps
     'apps.base',
     'apps.companies',
